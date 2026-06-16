@@ -7,9 +7,15 @@ router.get("/", function (req, res) {
 });
 
 router.post("/index",
-    body("nome").isLength({ min: 3, max: 30}).withMessage("O nome deve ter de 3 a 30 caracteres caracteres").matches(/^[a-zA-Z\s]+$/).withMessage("O nome deve conter apenas letras e espaços"),
-    body("cpf").matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/).withMessage("Insira um CPF válido"),
-    body("compra").isLength({ min: 1, max: 10 }).withMessage("O valor da compra deve ter entre 1 e 10 caracteres"),
+    body("nome").isLength({ min: 3, max: 50}).withMessage("O nome deve ter de 3 a 30 caracteres caracteres").matches(/^[a-zA-Z\s]+$/).withMessage("O nome deve conter apenas letras e espaços"),
+    body("cpf").isLength({ min: 11, max: 11 }).withMessage("Insira um CPF válido"),
+    body("compra").isLength({ min: 1, max: 10 }).withMessage("O valor da compra deve ter entre 1 e 10 caracteres")
+    .custom((value) => {
+        if(validarCPF(value)){
+            return true;
+        }
+        throw new Error("Insira um CPF válido");
+    }),
     function (req, res) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
