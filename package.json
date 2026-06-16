@@ -1,0 +1,25 @@
+{
+  "name": "atv_dupla_2tri",
+  "version": "1.0.0",
+  "description": "Template para futuros projetos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desmatriculandos/atv_dupla_2TRI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/desmatriculandos/atv_dupla_2TRI/issues"
+  },
+  "homepage": "https://github.com/desmatriculandos/atv_dupla_2TRI#readme",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2"
+  }
+}
